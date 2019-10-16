@@ -96,7 +96,7 @@
                 <ul class="pricing-text">
 
                   <li style="font-size: 20px; color: white;">1. Merchant Application Forum</li>
-                  <span class="excerpt d-block" style="text-transform: none; color: #fdfdfd; padding-left: 10px;"><p>Apply to our merchant application to get started.</p></span>
+                  <span class="excerpt d-block" style="text-transform: none; color: #fdfdfd; padding-left: 10px;"><p>Apply to our merchant application to get started.<br> Or give us a call at 1-800-500-2899 or email us at support@smartcocard.com</p></span>
 
                   <li style="font-size: 20px; color: white;">2. Account Review</li>
                   <span class="excerpt d-block" style="text-transform: none; color: #fdfdfd; padding-left: 10px;">Application will be reviewed by one of our experts to find and ensure the best processing bank that will fit your business.</span>
@@ -110,12 +110,12 @@
                   <li style="font-size: 20px; color: white;">5. Start Processing</li>
                   <span class="excerpt d-block" style="text-transform: none; color: #fdfdfd; padding-left: 10px;">We will help you select a POS, Terminal, Mobile Terminal, or Virtual Terminal according to your business type and structure.</span>
                 </ul>
-              </h3>
-              <a href="application.html#Start-Applying" class="btn btn-primary d-block px-2 py-3">Apply</a>
+              </h3>              
+              <button id="myButton" class="btn btn-primary d-block px-2 py-3" onclick="showForum()">APPLY ONLINE</button>
               </div>
             </div>
           </div>
-          <div class="col-md-4 ftco-animate">
+          <div class="col-md-4 ftco-animate" >
             <div class="block-7">
               <div class="text-center">
               <h2 class="heading"></h2>
@@ -130,58 +130,84 @@
       </div><div id="Start-Applying"></div>
     </section>
     
-    <section class="ftco-section contact-section" >
+    <section id="application-form" class="ftco-section contact-section hide-check" style="padding-top: 0;">
       <div class="container">
         <div class="row justify-content-center mb-5" >
-          <div class="col-md-7 heading-section ftco-animate text-center">
-            <h2 class="mb-4">Start Application</h2>
+          <div class="col-md-7 heading-section ftco-animate text-center" style="margin-bottom: -50px;">
+            <h2 class="mb-4 submit_wait">Start Application</h2>
+            <h2 class="submit_success" style="display: none;">Application Submission Success!</h2>
           </div>
         </div>       
         <div class="row block-9 justify-content-center">
-          <div class="col-md-6 order-md-last d-flex">
-            <form action="#" class="bg-light p-5 contact-form">
+          <div class="col-md-6 order-md-last d-flex" id="shake-spot">          
+            <form action="mailto:support@smartcocard.com?subject=New%20Applicant" id="form_id" method="post" name="form_apply" enctype="text/plain" class="bg-light p-5 contact-form form_class">
               <div><h3>Business Information</h3></div>
+              <!-- 1. DBA -->
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Business Name">
+                <input type="text" id="BusinessName" class="form-control" placeholder="Business Name" name="Business-Name">
+                <p id="required1" class="bName invisible" style="text-align: left;font-size: 12px;">*Required</p>
               </div>
+              <!-- 2. Addr -->
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Address">
+                <input type="text" id="BusinessAddress" class="form-control" placeholder="Business Location" name="Business-Address">
+                <p id="required2"  class="bAddr invisible" style="text-align: left;font-size: 12px;">*Required</p>
               </div>
+              <!-- 3. Phone -->
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Phone Number">
-              </div>
+                <input type="text" name="Business-Phone" id="BusinessPhone" class="form-control" placeholder="Phone Number">
+                <p id="required3"  class="bPhone invisible" style="text-align: left;font-size: 12px;">*Required</p>
+                <p style="color: red; font-size: 14px;" id="invalid-phone"></p>
+              </div>   
+              <!-- 4. Tax ID -->
+              <div class="form-group businessTypeTip">
+                <input type="text" id="BusinessTax" class="form-control" placeholder="Business Tax ID" name="Business-Tax">
+                <span class="TipTypeText">Also known as Employer Identification Number (EIN) <br> If you are not sure please contact our support. 1-800-500-2899</span>
+                <p id="required4"  class="bTax invisible" style="text-align: left;font-size: 12px;">*Required</p>
+                <p style="color: red; font-size: 14px;" id="invalid-tax"></p>
+              </div>              
+              <!-- 5. Legal Business Name -->
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Email">
+                <input type="text" name="Legal-Business-Name" id="LegalBusinessName" class="form-control" placeholder="Legal Business Name*">
+                <p class="bLegalName1 visible" style="text-align: left; color: gray; font-size: 12px;">*This is the legal name that's associated to your business</p>
+                <p id="required5" class="bLegalName2 invisible" style="text-align: left;font-size: 12px;">*Required</p>
               </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Website URL">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Legal Business Name*">
-                <p style="color: red; font-size: 12px;">*This is the legal name that's associated to your business</p>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Legal Business Address*">
-                <p style="color: red; font-size: 12px;">*This is the legal address that's associated to your business</p>
-              </div>
+              
 
               <div><h3>Applicant Information</h3></div>
+              <!-- 1. Owner's Name -->
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Name">
+                <input type="text" name="Contact-Name" id="ContactName" class="form-control" placeholder="Owner's Name">
+                <p id="required7" class="aName invisible" style="text-align: left;font-size: 12px;">*Required</p>
               </div>
+              <!-- 2. Owner's address -->
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Address">
+                <input type="text" name="Contact-Address" id="ContactAddress" class="form-control" placeholder="Owner's Address">
+                <p id="required8" class="aAddress invisible" style="text-align: left;font-size: 12px;">*Required</p>
               </div>
+              <!-- 3. Owner Email -->
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Contact Phone Number">
+                <input type="text" name="Applicant-Email" id="ApplicantEmail" class="form-control" placeholder="Owner's Email">
+                <p id="required9"  class="aEmail invisible" style="text-align: left;font-size: 12px;">*Required</p>
+                <p style="color: red; font-size: 14px;" id="invalid-message"></p>
               </div>
+              <!-- 4. Date of Birth -->
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Birthday">
+                <input type="text" name="Applicant-DOB" id="ApplicantDOB" class="form-control" placeholder="Owner's Date of Birth">
+                <p id="required10" class="aDOB invisible" style="text-align: left;font-size: 12px;">*Required</p>
               </div>
-
-              
+              <!-- 5. Driver's License # -->
+              <div class="form-group businessTypeTip">
+                <input type="password" name="Applicant-License" id="ApplicantLicense" class="form-control" placeholder="Owner's SSN">
+                <p id="required11" class="aLicense invisible" style="text-align: left;font-size: 12px;">*Required</p>
+                <span class="TipTypeText">Required in order to open a processing account and protect against illicit financial activites. <br> Please call our support for detail. 1-800-500-2899</span>
+              </div>
+              <!-- 6. Void Check Copy -->
               <div class="form-group">
-                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                <p style="color: red; text-align: left; margin-bottom: 0px;">Please attach a photo or scan of a voided copy of your check.<br>It will be required for creating your processing account.</p>                
+              </div>
+              <div class="form-group" >
+                <div class="check hide-check" id="main" style="color: red;">Please enter required information.</div>
+                <input type="button" value="Mail Application" class="btn btn-primary py-3 px-5" onclick="submit_by_class()">                
               </div>
               <!-- And SSN -->
             </form>          
@@ -200,7 +226,6 @@
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                 <li class="ftco-animate"><a href="https://twitter.com/blog_smartinter"><span class="icon-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="https://www.facebook.com/smartinternational"><span class="icon-facebook"></span></a></li>
-                <!-- <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li> -->
               </ul>
             </div>
           </div>
@@ -208,10 +233,10 @@
             <div class="ftco-footer-widget mb-4 ml-md-5">
               <h2 class="ftco-heading-2">Useful Links</h2>
               <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">About Us</a></li>
-                <li><a href="#" class="py-2 d-block">Our Products</a></li>
-                <li><a href="#" class="py-2 d-block">Application</a></li>
-                <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+                <li><a href="about.html" class="py-2 d-block">About Us</a></li>
+                <li><a href="product.html" class="py-2 d-block">Our Products</a></li>
+                <li><a href="services.html" class="py-2 d-block">Application</a></li>
+                <li><a href="contact.html" class="py-2 d-block">Contact Us</a></li>
               </ul>
             </div>
           </div>
@@ -223,7 +248,7 @@
                 <ul>
                   <li><span class="icon icon-map-marker"></span><span style="color: white; text-align: left;" class="text">1641 West Main Street Suite 303, Alhambra, California, 91801 <br>USA</span></li>
                   <li><span class="icon icon-phone"></span><span style="color: white; text-align: center;" class="text">+1 (800) 500-2899</span></li>
-                  <li><a href="mailto: info@smartinternational.net"><span class="icon icon-envelope"></span><span style="text-align: center;" class="text">info@smartinternational.net</span></a></li>
+                  <li><a href="mailto: info@smartinternational.net"><span class="icon icon-envelope"></span><span style="text-align: center;" class="text">info@smartcocard.com</span></a></li>
                 </ul>
               </div>
             </div>

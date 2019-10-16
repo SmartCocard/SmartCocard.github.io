@@ -321,7 +321,236 @@
 
 //setInterval(function() { makeTimer(); }, 1000);
 
-
-
 })(jQuery);
 
+// Submit Application with Class
+function submit_by_class() {
+	var BusinessName = document.getElementById("BusinessName");
+	var BusinessAddress = document.getElementById("BusinessAddress");
+	var BusinessPhone = document.getElementById("BusinessPhone");
+	var BusinessTax = document.getElementById("BusinessTax");
+	var LegalBusinessName = document.getElementById("LegalBusinessName");
+	var BusinessCheck = document.getElementById("BusinessCheck");
+	const application_form = document.getElementById("form_id");
+
+	const shake_location = document.querySelector("div#shake-spot");
+
+	if (validation()) {
+		var x = document.getElementsByClassName("form_class");
+		x[0].submit();
+		var submit_wait = document.getElementsByClassName("submit_wait")[0].style.display="none";
+		var submit_success = document.getElementsByClassName("submit_success")[0].style.display="block";
+		document.getElementById("main").classList.remove("show-check");
+		document.getElementById("main").classList.add("hide-check");
+		application_form.submit();
+		}
+	else {
+		document.getElementById("main").classList.remove("hide-check");
+		document.getElementById("main").classList.add("show-check");		
+		shake_location.classList.add("apply-shake");
+		shake_location.addEventListener("animationend", (e) => {
+			shake_location.classList.remove("apply-shake");
+		});		
+	}	
+}
+
+// Forum Validator
+function validation() {
+	// Business Information Var
+	var BusinessName = document.getElementById("BusinessName");
+	var BusinessAddress = document.getElementById("BusinessAddress");
+	var BusinessPhone = document.getElementById("BusinessPhone");
+	var BusinessTax = document.getElementById("BusinessTax");
+	var LegalBusinessName = document.getElementById("LegalBusinessName");
+	// var BusinessCheck = document.getElementById("BusinessCheck");
+
+	const businessName_location = document.querySelector(".bName");
+	const businessAddress_location = document.querySelector(".bAddr");
+	const businessPhone_location = document.querySelector(".bPhone");
+	const businessTax_location = document.querySelector(".bTax");
+	const businessLegalName_location1 = document.querySelector(".bLegalName1");
+	const businessLegalName_location2 = document.querySelector(".bLegalName2");
+	// const businessCheck_location = document.querySelector(".bCheck");
+
+	// Applicant Information Var
+	var ApplicantContactName = document.getElementById("ContactName");
+	var ApplicantContactAddress = document.getElementById("ContactAddress");
+	var ApplicantEmail = document.getElementById("ApplicantEmail");
+	var ApplicantDOB = document.getElementById("ApplicantDOB");
+	// var ApplicantLicense = document.getElementById("ApplicantLicense");
+
+	const applicantName_location = document.querySelector(".aName");
+	const applicantAddress_location = document.querySelector(".aAddress");
+	const applicantEmail_location = document.querySelector(".aEmail");
+	const applicantDOB_location = document.querySelector(".aDOB");
+	// const applicantLicense_location = document.querySelector(".aLicense");
+	
+	var result = true;
+
+	// Business Information Validation
+	// 1. DBA
+	if (BusinessName.value == '' ) {
+		result = false;
+		document.getElementById("required1").style.color="red";
+		businessName_location.classList.add("visible");
+		businessName_location.classList.remove("invisible");
+	} else {
+		businessName_location.classList.add("invisible");
+		businessName_location.classList.remove("visible");
+	}
+	// 2. Addr
+	if (BusinessAddress.value == '') {
+		result = false;
+		document.getElementById("required2").style.color="red";
+		businessAddress_location.classList.add("visible");
+		businessAddress_location.classList.remove("invisible");
+	} else {
+		businessAddress_location.classList.add("invisible");
+		businessAddress_location.classList.remove("visible");
+	}
+	// 3. Phone
+	if (BusinessPhone.value == '' ) {
+		result = false;
+		document.getElementById("required3").style.color="red";
+		businessPhone_location.classList.add("visible");
+		businessPhone_location.classList.remove("invisible");
+	} else {
+		if (!ValidatePhone(BusinessPhone.value)) {
+			// invalid phone format
+			document.getElementById("invalid-phone").innerHTML = "Please enter valid format of XXX-XXX-XXXX.";
+			result = false;
+		} else {
+			document.getElementById("invalid-phone").innerHTML = "";
+			businessPhone_location.classList.add("invisible");
+			businessPhone_location.classList.remove("visible");
+		}		
+	}
+	// 4. Tax ID
+	if (BusinessTax.value == '') {
+		result = false;
+		document.getElementById("required4").style.color="red";
+		businessTax_location.classList.add("visible");
+		businessTax_location.classList.remove("invisible");
+	} else {
+		if (!ValidateTax(BusinessTax.value)) {
+			// invalid Tax ID format
+			document.getElementById("invalid-tax").innerHTML = "Please enter valid id. XX-XXXXXXX"
+			result = false;
+		} else {
+			document.getElementById("invalid-tax").innerHTML = "";
+			businessTax_location.classList.add("invisible");
+			businessTax_location.classList.remove("visible");
+		}		
+	}
+	// 5. Legal Business Name
+	if (LegalBusinessName.value == '') {
+		result = false;
+		document.getElementById("required5").style.color="red";
+		businessLegalName_location1.classList.remove("visible");
+		businessLegalName_location1.classList.add("invisible");
+		businessLegalName_location2.classList.remove("invisible");
+		businessLegalName_location2.classList.add("visible");
+	} else {
+		businessLegalName_location1.classList.remove("invisible");
+		businessLegalName_location1.classList.add("visible");
+		businessLegalName_location2.classList.remove("visible");
+		businessLegalName_location2.classList.add("invisible");
+	}
+	// 6. Void Check Copy
+	// if (BusinessCheck.value == '') {
+	// 	result = false;
+	// 	document.getElementById("required6").style.color="red";
+	// 	businessCheck_location.classList.add("visible");
+	// 	businessCheck_location.classList.remove("invisible");
+	// } else {
+	// 	businessCheck_location.classList.add("invisible");
+	// 	businessCheck_location.classList.remove("visible");
+	// }	
+
+	// Applicant Information Validation
+	// 1. Owner's Name
+	if (ApplicantContactName.value == '') {
+		result = false;
+		document.getElementById("required7").style.color = "red";
+		applicantName_location.classList.add("visible");
+		applicantName_location.classList.remove("invisible");
+	} else {
+		applicantName_location.classList.add("invisible");
+		applicantName_location.classList.remove("visible");
+	}
+	// 2. Owner's Address
+	if (ApplicantContactAddress.value == '') {
+		result = false;
+		document.getElementById("required8").style.color = "red";
+		applicantAddress_location.classList.add("visible");
+		applicantAddress_location.classList.remove("invisible");
+	} else {
+		applicantAddress_location.classList.add("invisible");
+		applicantAddress_location.classList.remove("visible");
+	}
+	// 3. Owner's Email
+	if (ApplicantEmail.value == '' ) {
+		result = false;
+		document.getElementById("required9").style.color="red";
+		applicantEmail_location.classList.add("visible");
+		applicantEmail_location.classList.remove("invisible");
+	} else {
+		if (!ValidateEmail(ApplicantEmail.value)) {
+			// invalid email format
+			document.getElementById("invalid-message").innerHTML ="Invalid email format.";
+			result = false;
+		} else {
+			document.getElementById("invalid-message").innerHTML ="";
+			applicantEmail_location.classList.add("invisible");
+			applicantEmail_location.classList.remove("visible");
+		}		
+	}
+	// 4. Date of Birth
+	if (ApplicantDOB.value == '') {
+		result = false;
+		document.getElementById("required10").style.color="red";
+		applicantDOB_location.classList.add("visible");
+		applicantDOB_location.classList.remove("invisible");
+	} else {
+		applicantDOB_location.classList.add("invisible");
+		applicantDOB_location.classList.remove("visible");
+	}
+	// 5. Driver's License
+	// if (ApplicantLicense.value == '') {
+	// 	result = false;
+	// 	document.getElementById("required11").style.color="red";
+	// 	applicantLicense_location.classList.add("visible");
+	// 	applicantLicense_location.classList.remove("invisible");
+	// } else {
+	// 	applicantLicense_location.classList.add("invisible");
+	// 	applicantLicense_location.classList.remove("visible");
+	// }
+
+	//alert("Result: " + result);
+	return result;
+}
+
+function ValidateEmail(mail) {
+	return (mail.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) ? true : false);
+}
+
+function ValidatePhone(phone) {
+	return (phone.match(/^(\([0-9]{3}\)|[0-9]{3}-)[0-9]{3}-[0-9]{4}$/) ? true : false);
+}
+
+function ValidateTax(tax) {
+	return (tax.match(/^(\([0-9]{2}\)|[0-9]{2}-)[0-9]{7}$/) ? true : false);
+}
+
+function showForum() {
+	var form = document.getElementById("application-form");
+	form.classList.remove("hide-check");
+	form.classList.add("show-check");
+}
+
+$('#myButton').click(function() {
+
+	$('html, body').animate({
+		scrollTop: $('#Start-Applying').offset().top
+	}, 1000);
+});

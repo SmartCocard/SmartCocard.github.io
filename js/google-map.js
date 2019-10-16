@@ -41,11 +41,11 @@ function init() {
     var mapElement = document.getElementById('map');
 
     // Create the Google Map using out element and options defined above
-    var map = new google.maps.Map(mapElement, mapOptions);
+    //var map = new google.maps.Map(mapElement, mapOptions);
     
     var latlng2 = "34.091514, -118.141407";
     var addresses = ['1641 West Main Str, Alhambra, CA 91801, USA'];
-    var url = "http://maps.googleapis.com/maps/api/geocode/json?address=" + addresses + "&sensor=false";
+    var url = "http://maps.googleapis.com/maps/api/geocode/json?address=" + addresses;
 
     for (var x = 0; x < addresses.length; x++) {
         $.getJSON(url, "AIzaSyDZZ7Qj7aqCtBrqiuBzcwfPf8_6hkxNx2s", function (data) {

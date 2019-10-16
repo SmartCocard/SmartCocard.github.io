@@ -1737,8 +1737,55 @@ select.form-control[size], select.form-control[multiple] {
 textarea.form-control {
   height: auto; }
 
+.email_void_check {
+  justify-content: left;
+}
+
 .form-group {
   margin-bottom: 1rem; }
+
+.form-group > .hide-check{
+  display: none;
+}
+.form-group > .show-check {
+  display: block;
+}
+
+.hide-check {
+  display: none;
+}
+
+.show-check {
+  display: block;
+}
+
+.invisible {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.apply-shake {
+  animation: shake 0.50s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
 
 .form-text {
   display: block;
@@ -6542,6 +6589,12 @@ button.bg-dark:focus {
 .my-4 {
   margin-bottom: 1.5rem !important; }
 
+.col-md-7.hide {
+  display: none;
+}
+
+
+
 .ml-4,
 .mx-4 {
   margin-left: 1.5rem !important; }
@@ -8917,6 +8970,44 @@ h1, h2, h3, h4, h5,
   box-shadow: none !important; }
   .form-control:focus, .form-control:active {
     border-color: #000000; }
+
+.businessTypeTip {
+  position: relative;
+  display: block;
+}
+
+.businessTypeTip .TipTypeText {
+  visibility: hidden;
+  width: 380px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.businessTypeTip .TipTypeText::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.businessTypeTip:hover .TipTypeText {
+  visibility: visible;
+  opacity: 1;
+}
 
 textarea.form-control {
   height: inherit !important; }
