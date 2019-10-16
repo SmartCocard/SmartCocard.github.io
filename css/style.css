@@ -1752,11 +1752,11 @@ textarea.form-control {
 }
 
 .hide-check {
-  display: none;
+  display: none !important;
 }
 
 .show-check {
-  display: block;
+  display: block !important;
 }
 
 .invisible {

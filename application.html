@@ -111,7 +111,7 @@
                   <span class="excerpt d-block" style="text-transform: none; color: #fdfdfd; padding-left: 10px;">We will help you select a POS, Terminal, Mobile Terminal, or Virtual Terminal according to your business type and structure.</span>
                 </ul>
               </h3>              
-              <button id="myButton" class="btn btn-primary d-block px-2 py-3" onclick="showForum()">APPLY ONLINE</button>
+              <button id="myButton" class="btn btn-primary d-block px-2 py-3" onclick="showForum()">Contact Now</button>              
               </div>
             </div>
           </div>
@@ -121,58 +121,34 @@
               <h2 class="heading"></h2>
               <span class="price"><sup></sup> <span class="number"></span></span>
               <span class="excerpt d-block"></span>              
-              <h3 class="heading-2 my-4"></h3>              
+              <h3 class="heading-2 my-4"></h3>                            
               <ul class="pricing-text">                
               </ul>
               </div>
             </div>
           </div>
-      </div><div id="Start-Applying"></div>
+      </div>
+      <div id="Start-Applying" style="width: 100%; justify-content: center; text-align: center;"><!-- Thank you message -->
+        <!-- @@@@@@@@@@@@@@@@@@@@@@@@ TODO @@@@@@@@@@@@@@@@@@@@@@@ -->
+        <div id="thankyou" class="row block-9 text-center ">
+          <div class="col-md-6 order-md-last" style="justify-content: center; text-align: center;">
+            <h3>Thank for contacting <br>Smart International Services!<br>One of our support will contact you soon.</h3>  
+          </div>
+        </div>
+      </div>
     </section>
     
     <section id="application-form" class="ftco-section contact-section hide-check" style="padding-top: 0;">
-      <div class="container">
-        <div class="row justify-content-center mb-5" >
+      <div id="app-form" class="container">
+        <div id="form_area1" class="row justify-content-center mb-5" >
           <div class="col-md-7 heading-section ftco-animate text-center" style="margin-bottom: -50px;">
-            <h2 class="mb-4 submit_wait">Start Application</h2>
+            <h2 class="mb-4 submit_wait">Contact Form</h2>
             <h2 class="submit_success" style="display: none;">Application Submission Success!</h2>
           </div>
         </div>       
         <div class="row block-9 justify-content-center">
-          <div class="col-md-6 order-md-last d-flex" id="shake-spot">          
-            <form action="mailto:support@smartcocard.com?subject=New%20Applicant" id="form_id" method="post" name="form_apply" enctype="text/plain" class="bg-light p-5 contact-form form_class">
-              <div><h3>Business Information</h3></div>
-              <!-- 1. DBA -->
-              <div class="form-group">
-                <input type="text" id="BusinessName" class="form-control" placeholder="Business Name" name="Business-Name">
-                <p id="required1" class="bName invisible" style="text-align: left;font-size: 12px;">*Required</p>
-              </div>
-              <!-- 2. Addr -->
-              <div class="form-group">
-                <input type="text" id="BusinessAddress" class="form-control" placeholder="Business Location" name="Business-Address">
-                <p id="required2"  class="bAddr invisible" style="text-align: left;font-size: 12px;">*Required</p>
-              </div>
-              <!-- 3. Phone -->
-              <div class="form-group">
-                <input type="text" name="Business-Phone" id="BusinessPhone" class="form-control" placeholder="Phone Number">
-                <p id="required3"  class="bPhone invisible" style="text-align: left;font-size: 12px;">*Required</p>
-                <p style="color: red; font-size: 14px;" id="invalid-phone"></p>
-              </div>   
-              <!-- 4. Tax ID -->
-              <div class="form-group businessTypeTip">
-                <input type="text" id="BusinessTax" class="form-control" placeholder="Business Tax ID" name="Business-Tax">
-                <span class="TipTypeText">Also known as Employer Identification Number (EIN) <br> If you are not sure please contact our support. 1-800-500-2899</span>
-                <p id="required4"  class="bTax invisible" style="text-align: left;font-size: 12px;">*Required</p>
-                <p style="color: red; font-size: 14px;" id="invalid-tax"></p>
-              </div>              
-              <!-- 5. Legal Business Name -->
-              <div class="form-group">
-                <input type="text" name="Legal-Business-Name" id="LegalBusinessName" class="form-control" placeholder="Legal Business Name*">
-                <p class="bLegalName1 visible" style="text-align: left; color: gray; font-size: 12px;">*This is the legal name that's associated to your business</p>
-                <p id="required5" class="bLegalName2 invisible" style="text-align: left;font-size: 12px;">*Required</p>
-              </div>
-              
-
+          <div id="shake-spot" class="col-md-6 order-md-last d-flex" >          
+            <form action="mailto:support@smartcocard.com?subject=New%20Applicant" id="form_id" method="post" name="form_apply" enctype="text/plain" class="bg-light p-5 contact-form form_class">             
               <div><h3>Applicant Information</h3></div>
               <!-- 1. Owner's Name -->
               <div class="form-group">
@@ -189,32 +165,21 @@
                 <input type="text" name="Applicant-Email" id="ApplicantEmail" class="form-control" placeholder="Owner's Email">
                 <p id="required9"  class="aEmail invisible" style="text-align: left;font-size: 12px;">*Required</p>
                 <p style="color: red; font-size: 14px;" id="invalid-message"></p>
-              </div>
-              <!-- 4. Date of Birth -->
+              </div>              
+              <!-- 4. Message -->
               <div class="form-group">
-                <input type="text" name="Applicant-DOB" id="ApplicantDOB" class="form-control" placeholder="Owner's Date of Birth">
-                <p id="required10" class="aDOB invisible" style="text-align: left;font-size: 12px;">*Required</p>
-              </div>
-              <!-- 5. Driver's License # -->
-              <div class="form-group businessTypeTip">
-                <input type="password" name="Applicant-License" id="ApplicantLicense" class="form-control" placeholder="Owner's SSN">
-                <p id="required11" class="aLicense invisible" style="text-align: left;font-size: 12px;">*Required</p>
-                <span class="TipTypeText">Required in order to open a processing account and protect against illicit financial activites. <br> Please call our support for detail. 1-800-500-2899</span>
-              </div>
-              <!-- 6. Void Check Copy -->
-              <div class="form-group">
-                <p style="color: red; text-align: left; margin-bottom: 0px;">Please attach a photo or scan of a voided copy of your check.<br>It will be required for creating your processing account.</p>                
-              </div>
+                <textarea id="subject" name="Body" class="form-control" placeholder="Message.." style="height:150px !important;"></textarea> 
+              </div>  
+              <!-- Warning -->
               <div class="form-group" >
                 <div class="check hide-check" id="main" style="color: red;">Please enter required information.</div>
-                <input type="button" value="Mail Application" class="btn btn-primary py-3 px-5" onclick="submit_by_class()">                
+                <input type="button" value="Contact Now" class="btn btn-primary py-3 px-5" onclick="submit_by_class()">                
               </div>
-              <!-- And SSN -->
-            </form>          
-          </div>
-        </div>
+            </form>                  
+          </div>          
+        </div>          
       </div>
-    </section>
+    </section>  
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
