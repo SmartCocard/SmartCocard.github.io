@@ -1764,7 +1764,7 @@ textarea.form-control {
 }
 
 .visible {
-  display: block;
+  display: flex;
 }
 
 @keyframes shake {

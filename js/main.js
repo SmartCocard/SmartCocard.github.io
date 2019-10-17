@@ -449,9 +449,10 @@ function showForum() {
 	form.classList.add("show-check");
 }
 
-$('#myButton').click(function() {
-
+$('#myButton').click(function() {	
 	$('html, body').animate({
 		scrollTop: $('#Start-Applying').offset().top
 	}, 1000);
+	$('#myButton').prop('disabled', true);
+	$('#myButton').text('Thank you for contacting us!');
 });
