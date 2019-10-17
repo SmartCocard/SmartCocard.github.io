@@ -7136,7 +7136,9 @@ button.bg-dark:focus {
     margin-top: 0.5rem !important; }
   .mr-md-2,
   .mx-md-2 {
-    margin-right: 0.5rem !important; }
+    text-align: center;
+    margin-right: 0.5rem !important; 
+    width: 150px;}
   .mb-md-2,
   .my-md-2 {
     margin-bottom: 0.5rem !important; }
@@ -8206,7 +8208,8 @@ h1, h2, h3, h4, h5,
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     -ms-border-radius: 2px;
-    border-radius: 2px; }
+    border-radius: 2px; 
+    width: 150px;}
     .ftco-navbar-light .navbar-nav > .nav-item.cta > a span {
       display: inline-block;
       color: #fff; }
