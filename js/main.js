@@ -311,6 +311,7 @@ function submit_by_class() {
 	application_form.classList.add("show-check");
 
 	if (validation()) {
+		alert("Valid");
 		var x = document.getElementsByClassName("form_class");
 		x[0].submit();
 		var submit_wait = document.getElementsByClassName("submit_wait")[0].style.display="none";
@@ -335,6 +336,7 @@ function submit_by_class() {
 		application_form.submit();
 		}
 	else {
+		
 		// Show Missing Required input warning
 		document.getElementById("main").classList.remove("hide-check");
 		document.getElementById("main").classList.add("show-check");	
