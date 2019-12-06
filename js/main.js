@@ -311,7 +311,7 @@ function submit_by_class() {
 	application_form.classList.add("show-check");
 
 	if (validation()) {
-		alert("Valid");
+		// alert("Valid");
 		var x = document.getElementsByClassName("form_class");
 		x[0].submit();
 		var submit_wait = document.getElementsByClassName("submit_wait")[0].style.display="none";
